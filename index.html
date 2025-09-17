@@ -6,9 +6,22 @@
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Fade effect for rotating text */
+    #changing-text {
+      opacity: 1;
+      transition: opacity 1s ease;
+      position: absolute;
+      top: 250px; /* adjust to align with hero-left content */
+      left: 60px;
+      font-size: 30px;
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
-  <!-- Navigation -->
+
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
       <img src="logo.svg" alt="Logo">
@@ -26,25 +39,156 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-left">
-      <p class="intro">Hi, I am</p>
-      <h1>Ryy</h1>
-      <h3>Your Typical Computer Science Student</h3>
-      <div class="social-icons">
-        <a href="mailto:your@email.com">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-        <a href="https://github.com/yourusername" target="_blank">
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-      </div>
+      <p class="intro">Hello, I am</p>
+      <h1>Ryan Cabalfin</h1>
     </div>
+    
+    <!-- Rotating text moved outside clip-path container -->
+    <h3 id="changing-text">Your Typical Computer Science Student</h3>
 
     <div class="hero-right">
       <img src="profile.png" alt="Profile" class="profile-img">
     </div>
   </section>
+
+<div class="social-icons">
+  <a href="https://github.com/tailsui" target="_blank">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/ryan-cabalfin-262a58343/" target="_blank">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ryancabalfin0@gmail.com" target="_blank">
+    <i class="fas fa-envelope"></i>
+  </a>
+  <a href="https://www.facebook.com/tailsss" target="_blank">
+    <i class="fab fa-facebook"></i>
+  </a>
+</div>
+
+  <section id="portfolio" class="portfolio">
+    <h2>My Portfolio</h2>
+    <div class="portfolio-container">
+      <div class="portfolio-text">
+        <p>
+          Greetings, I’m <strong>Ryan Cabalfin</strong>, a dedicated student with a growing passion for technology and innovation. 
+          While I am still at the beginning of my journey, I am continuously learning and building my skills in 
+          <em>web development, programming, and data science</em>. My goal is to create applications and solutions 
+          that are not only efficient but also meaningful, improving the lives of people and solving real-world problems.
+        </p>
+        <p>
+          I believe that every project, no matter how small, is a step toward becoming the professional I aspire to be. 
+          Through coursework, personal projects, and constant practice, I am developing a strong foundation in 
+          <em>Python, Java, HTML, CSS, and problem-solving</em>. I look forward to gaining more experience by collaborating 
+          with others, learning from mentors, and working on projects that challenge me to grow.
+        </p>
+        <p>
+          Beyond academics, I am passionate about continuous self-improvement. I embrace curiosity, persistence, and 
+          creativity as I work toward my dream of becoming a skilled <em>software engineer</em>. My vision is to one day 
+          contribute to global projects, collaborate with people from diverse backgrounds, and make a meaningful impact in 
+          the tech industry.
+        </p>
+      </div>
+      <div class="portfolio-image">
+        <img src="profile.png" alt="Ryan Cabalfin">
+      </div>
+    </div>
+  </section>
+
+<section class="skills" id="skills">
+  <h2>My Skills</h2>
+  <div class="skills-container">
+    <div class="skill">
+      <img src="html.svg" alt="HTML Logo" class="skill-logo">
+      <div class="skill-bar">
+        <div class="skill-level" data-skill="70%">
+          <span class="skill-percent">70%</span>
+        </div>
+      </div>
+    </div>
+    <div class="skill">
+      <img src="css.svg" alt="CSS Logo" class="skill-logo">
+      <div class="skill-bar">
+        <div class="skill-level" data-skill="70%">
+          <span class="skill-percent">70%</span>
+        </div>
+      </div>
+    </div>
+    <div class="skill">
+      <img src="python.svg" alt="Python Logo" class="skill-logo">
+      <div class="skill-bar">
+        <div class="skill-level" data-skill="60%">
+          <span class="skill-percent">60%</span>
+        </div>
+      </div>
+    </div>
+    <div class="skill">
+      <img src="cplus.svg" alt="C++ Logo" class="skill-logo">
+      <div class="skill-bar">
+        <div class="skill-level" data-skill="60%">
+          <span class="skill-percent">60%</span>
+        </div>
+      </div>
+    </div>
+    <div class="skill">
+      <img src="js.svg" alt="JavaScript Logo" class="skill-logo">
+      <div class="skill-bar">
+        <div class="skill-level" data-skill="30%">
+          <span class="skill-percent">30%</span>
+        </div>
+      </div>
+    </div>
+    <div class="skill">
+      <img src="flutter.svg" alt="Flutter Logo" class="skill-logo">
+      <div class="skill-bar">
+        <div class="skill-level" data-skill="40%">
+          <span class="skill-percent">40%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <script>
+    const phrases = [
+      "Your Typical Computer Science Student",
+      "Likes to Build Things",
+      "Still Learning"
+    ];
+    let currentIndex = 0;
+    const textElement = document.getElementById("changing-text");
+
+    setInterval(() => {
+      textElement.style.opacity = 0; // fade out
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % phrases.length;
+        textElement.textContent = phrases[currentIndex];
+        textElement.style.opacity = 1; // fade in
+      }, 1000);
+    }, 3000);
+  </script>
+
+  <script>
+    const skillLevels = document.querySelectorAll('.skill-level');
+
+    function animateSkills() {
+      skillLevels.forEach(skill => {
+        const value = skill.getAttribute('data-skill');
+        skill.style.width = value;
+      });
+    }
+
+    const skillsSection = document.querySelector('.skills');
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateSkills();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(skillsSection);
+  </script>
+
 </body>
 </html>
